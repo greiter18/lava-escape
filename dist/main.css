@@ -1,4 +1,4 @@
-body{background-color:black}#gameScreen{border:1px solid red;background-image:url("/src/images/background.gif");position:fixed;left:35%}#imgPlatform{display:none}
+body{background-color:black}#gameScreen{border:1px solid red;background-image:url("https://github.com/greiter18/lava-escape/blob/main/src/images/background.gif?raw=true");position:fixed;left:35%}#imgPlatform{display:none}#background{display:none}
 
 
 /*# sourceMappingURL=main.css.map*/
