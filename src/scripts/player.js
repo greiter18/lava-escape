@@ -13,7 +13,7 @@ export default class Player {
       x: game.gameWidth / 2 - this.width / 2,
       y: game.gameHeight - this.height 
     };
-    
+
     this.jumping = true;
     this.onPlatform = false;
     this.movingDown = false;
@@ -101,17 +101,20 @@ export default class Player {
       //checking if player on platform 
       this.game.platforms.forEach(platform => {
         if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform)) {
-          this.position.y = platform.position.y// - this.height
-          this.jumping = true
+          this.position.y = platform.position.y + this.height
           this.onPlatform = true;
+          this.jumping = true
           console.log(this.onPlatform);
-        } else {
-          this.onPlatform = false;
-        }
+        } 
+        this.onPlatform = false;
       });
      
       
-      if (!this.onPlatform) this.gravity() //gravity trigger
+      if (!this.onPlatform) {
+        this.gravity()
+      } else {
+        this.position.y += 1
+      } //gravity trigger
       
     };
 }
