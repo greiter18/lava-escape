@@ -13,6 +13,7 @@ export default class Player {
       x: game.gameWidth / 2 - this.width / 2,
       y: game.gameHeight - this.height 
     };
+    
     this.jumping = true;
     this.onPlatform = false;
     this.movingDown = false;
