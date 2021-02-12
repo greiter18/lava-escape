@@ -13,6 +13,7 @@ export default class Player {
       x: game.gameWidth / 2 - this.width / 2,
       y: game.gameHeight - this.height 
     };
+    this.x_velocity = 
 
     this.jumping = true;
     this.onPlatform = false;
@@ -36,8 +37,8 @@ export default class Player {
     };
 
     checkLandedOnPlatform(yCord){
-        return (this.position.y + this.height  > yCord - 2 && this.position.y + this.height <= yCord );
-        // return this.game.player.position.y === yCord || (this.game.player.position.y > yCord - 2 && this.game.player.position.y < yCord );
+        //return (this.position.y + this.height  > yCord - 2 && this.position.y + this.height <= yCord );
+        return this.game.player.position.y + this.height === yCord
       }
 
     checkWithinPlatform(platform){
@@ -106,7 +107,7 @@ export default class Player {
           this.jumping = true
           console.log(this.onPlatform);
         } 
-        this.onPlatform = false;
+        //this.onPlatform = false;
       });
      
       
