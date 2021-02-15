@@ -29,7 +29,6 @@ export default class Game {
 
   draw(ctx){
     [...this.platforms,this.player].forEach(object => object.draw(ctx))
-    console.log(this.platforms.length)
   }
 
 };

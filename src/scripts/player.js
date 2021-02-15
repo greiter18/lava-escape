@@ -9,36 +9,34 @@ export default class Player {
     this.height = 40;
     this.gameWidth = game.gameWidth;
     this.gameHeight = game.gameHeight;
+    this.onGround = false
+    this.onPlatform = false
+    this.velocity_y = 0;
     this.position = {
       x: game.gameWidth / 2 - this.width / 2,
-      y: game.gameHeight - this.height 
-    };
-    this.x_velocity = 
-
-    this.jumping = true;
-    this.onPlatform = false;
-    this.movingDown = false;
-    this.img = document.getElementById('yuffie');
+      y: game.gameHeight - this.height};
     document.addEventListener('keydown', e => {
       this.canvas.keys = (this.canvas.keys || []);
       this.canvas.keys[e.key] = true;
+      if(this.canvas.keys[' '] && (this.onPlatform || this.onGround )){
+        this.velocity_y -= 175
+        this.onGround = false
+        this.onPlatform = false
+      }
     })
     document.addEventListener('keyup', e => {
       this.canvas.keys[e.key] = false;
     })
   };
 
-  // drawSprite(img,sX,sY,sW,sH,dX,dY,dW,dH){
-  //   ctx.drawImage(img,sX,sY,sW,sH,dX,dY,dW,dH);
-  // }
      draw(ctx){
-      ctx.fillStyle = 'white'
-      ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+      ctx.fillStyle = 'blue'
+      ctx.fillRect(this.position.x, this.position.y + this.velocity_y, this.width, this.height);
     };
 
     checkLandedOnPlatform(yCord){
-        //return (this.position.y + this.height  > yCord - 2 && this.position.y + this.height <= yCord );
-        return this.game.player.position.y + this.height === yCord
+        return ((this.position.y + this.height  > (yCord - 10) ) && (this.position.y + this.height <= yCord) )
+        
       }
 
     checkWithinPlatform(platform){
@@ -49,73 +47,45 @@ export default class Player {
       return playerPost > platPos && playerPost < platEndPos;
     }
 
-    jump(){
-      this.position.y -= 150
-    };
-    superJump(){
-      this.position.y -= 250
-    };
-
     gravity(){
-      this.position.y += 5
-    };
-
-    platformDrop(){
-      if(this.onPlatform) this.position.y += 1
+       if (!this.onGround && !this.onPlatform) {
+        this.velocity_y += 5
+        console.log(this.velocity_y)
+      }
     }
 
-    // playerFalling(){
-    //   if(previous frame this.position.y < current frame.position.y){
-    //     falling = true
-    //   } else {
-    //     falling = false
-    //   }
-    // }
-
+  
     update(dt) {
       if (!dt) return;
-      //moving logic
+      //controller logic
       if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -10}
       if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 10}
-      if ((this.canvas.keys && this.canvas.keys[' ']) && (this.jumping === true) && (this.canvas.keys && !this.canvas.keys['ArrowUp'])){    //jumping logic
-        this.jump();
-        this.jumping = false;
-      }
-      if (this.canvas.keys && this.canvas.keys['ArrowUp']) {//super jump logic
-        if((this.canvas.keys && this.canvas.keys[' ']) && (this.jumping === true)){
-          this.superJump();
-          this.jumping = false;
-        }
-      }
       
       //level collission logic
-      if (this.position.y < 0) this.position.y = 0
-      if (this.position.y + this.height > this.gameHeight) {
-        this.position.y = this.gameHeight - this.height
-        this.jumping = true
+      //height check
+      if((!this.onGround && this.velocity_y >= 0) && ((this.position.y + this.height) >= this.gameHeight )){
+        this.onGround = true
+        this.velocity_y = 0
+        // this.position.y = this.gameHeight - this.height
       }
-    
+      //width check
+      
       if (this.position.x < 0) this.position.x = 0
       if (this.position.x + this.width > this.gameWidth) {
         this.position.x = this.gameWidth - this.width
       }
-      //checking if player on platform 
+      //checking if player is on platform 
+      this.onPlatform = false
       this.game.platforms.forEach(platform => {
-        if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform)) {
-          this.position.y = platform.position.y + this.height
-          this.onPlatform = true;
-          this.jumping = true
-          console.log(this.onPlatform);
+        if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && !this.onGround && this.velocity_y >= 1) {
+          debugger
+          this.onPlatform = true
+          this.velocity_y = 1
+          console.log('on platform')
         } 
-        //this.onPlatform = false;
       });
      
-      
-      if (!this.onPlatform) {
-        this.gravity()
-      } else {
-        this.position.y += 1
-      } //gravity trigger
-      
+     this.gravity();
+       
     };
 }
