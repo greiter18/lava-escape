@@ -19,7 +19,7 @@ export default class Player {
       this.canvas.keys = (this.canvas.keys || []);
       this.canvas.keys[e.key] = true;
       if(this.canvas.keys[' '] && (this.onPlatform || this.onGround )){
-        this.velocity_y -= 175
+        this.velocity_y = -50
         this.onGround = false
         this.onPlatform = false
       }
@@ -31,7 +31,7 @@ export default class Player {
 
      draw(ctx){
       ctx.fillStyle = 'blue'
-      ctx.fillRect(this.position.x, this.position.y + this.velocity_y, this.width, this.height);
+      ctx.fillRect(this.position.x, this.position.y += this.velocity_y, this.width, this.height);
     };
 
     checkLandedOnPlatform(yCord){
@@ -77,14 +77,14 @@ export default class Player {
       //checking if player is on platform 
       this.onPlatform = false
       this.game.platforms.forEach(platform => {
-        if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && !this.onGround && this.velocity_y >= 1) {
+        if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && 
+        !this.onGround && this.velocity_y >= 1) {
           debugger
           this.onPlatform = true
           this.velocity_y = 1
           console.log('on platform')
         } 
       });
-     
      this.gravity();
        
     };
