@@ -1,4 +1,4 @@
-## Erruption
+## Lava Escape
   
 ### Background and overview
 Erruption is an interactive platform game where the player puts their skills to the test. It's a fight against the rising lava as the player
