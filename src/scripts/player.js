@@ -3,10 +3,11 @@ import Game from './game';
 export default class Player {
   constructor(game) {
     this.game = game;
+    this.img = document.getElementById('imgPlayer');
     this.platforms = game.platforms
     this.canvas = game.canvas
-    this.width = 20;
-    this.height = 40;
+    this.width = 80;
+    this.height = 80;
     this.gameWidth = game.gameWidth;
     this.gameHeight = game.gameHeight;
     this.onGround = false
@@ -19,7 +20,7 @@ export default class Player {
       this.canvas.keys = (this.canvas.keys || []);
       this.canvas.keys[e.key] = true;
       if(this.canvas.keys[' '] && (this.onPlatform || this.onGround )){
-        this.velocity_y = -50
+        this.velocity_y -= 50
         this.onGround = false
         this.onPlatform = false
       }
@@ -31,7 +32,8 @@ export default class Player {
 
      draw(ctx){
       ctx.fillStyle = 'blue'
-      ctx.fillRect(this.position.x, this.position.y += this.velocity_y, this.width, this.height);
+      ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y, this.width, this.height);
+      console.log(this.position.y, this.position.y + this.height)
     };
 
     checkLandedOnPlatform(yCord){
@@ -60,16 +62,14 @@ export default class Player {
       //controller logic
       if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -10}
       if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 10}
-      
       //level collission logic
       //height check
       if((!this.onGround && this.velocity_y >= 0) && ((this.position.y + this.height) >= this.gameHeight )){
         this.onGround = true
         this.velocity_y = 0
-        // this.position.y = this.gameHeight - this.height
+        this.position.y = (this.gameHeight - this.height)
       }
       //width check
-      
       if (this.position.x < 0) this.position.x = 0
       if (this.position.x + this.width > this.gameWidth) {
         this.position.x = this.gameWidth - this.width
@@ -79,7 +79,7 @@ export default class Player {
       this.game.platforms.forEach(platform => {
         if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && 
         !this.onGround && this.velocity_y >= 1) {
-          debugger
+          console.log('on platform')
           this.onPlatform = true
           this.velocity_y = 1
           console.log('on platform')
