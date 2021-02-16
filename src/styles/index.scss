@@ -1,15 +1,14 @@
-
-
 body{
   background-color: black;
 }
-
 #gameScreen{
-  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid orangered;
   background-image: url("https://github.com/greiter18/lava-escape/blob/main/src/images/background.gif?raw=true");
-  position: fixed;
-  left: 35%;
-
+  
+  margin: 0 auto;
 }
 
 #imgPlatform{
@@ -21,3 +20,39 @@ body{
 #background{
   display: none;
 }
+.controls{
+  position: absolute;
+  left: 55%;
+  margin-left: 200px;
+  bottom: 20%;
+  color: orangered;
+  font-size: 20px;
+  font-family: 'Hanalei Fill', cursive;
+}
+.score{
+  position: absolute;
+  left: 55%;
+  margin-left: 300px;
+  top: 10%;
+  color: orangered;
+  font-size: 30px;
+  font-family: 'Hanalei Fill', cursive;
+}
+
+.links{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  flex-direction: column;
+  margin-left: -300px
+  
+}
+
+.links a {
+  color:orangered;
+  font-size: 30px;
+}
+

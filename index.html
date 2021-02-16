@@ -6,20 +6,57 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./dist/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Hanalei&family=Hanalei+Fill&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/498721e045.js" crossorigin="anonymous"></script>
   <title>Lava Escape</title>
 </head>
 <body>
+
+  <div class="links">
+    <a href="https://www.linkedin.com/in/gabriel-reiter-7352b2b7/"
+       class='linkedin'
+       target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/greiter18"
+       class='github'
+       target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://github.com/greiter18/lava-escape"
+       class='github'
+       target="_blank">
+      <i class="fab fa-git"></i>
+    </a>
+    <a href="https://angel.co/u/gabriel-reiter"
+      class = 'angellist'
+      target="_blank"
+     >
+    <i class="fab fa-angellist"></i>
+    </a>
+  </div>
+
+  <div class='opening-modal' id='open_modal'>
+    <p>Press Space to Begin</p>
+  </div>
+  
+  <div class='closing-modal' id='close_modal'>
+    <p>Game Over! Press Space to Play Again</p>
+  </div>
+  
   
   <canvas id="gameScreen"></canvas>
   <script src='./dist/main.js'></script>
   <img src="src/images/platform.png" alt="platform" id='imgPlatform'>
-  <img src="src/images/png/Idle (1).png" alt="player" id='imgPlayer'>
-  <img src="src/images/png/Idle (1).png" alt="player" id='imgPlayer'>
+  <img src="src/images/char_image/Idle (1).png" alt="player" id='imgPlayer'>
+
+  <p class="score">Score</p><br> <br>
   <p class="controls">
-  Controls: 
-  left: Left <br> <br>
-  right: Right <br> <br>
-  jump: Space <br> <br>
+  Controls:<br> <br>
+  Left: Left <br> <br>
+  Right: Right <br> <br>
+  Jump: Space <br> <br>
   </p>
 </body>
 </html>
