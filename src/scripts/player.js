@@ -81,7 +81,7 @@ export default class Player {
         !this.onGround && this.velocity_y >= 1) {
           
           this.onPlatform = true
-          this.velocity_y = 1
+          this.velocity_y = platform.velocity_y
         } 
       });
      this.gravity();
