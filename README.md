@@ -1,5 +1,7 @@
 ## Lava Escape
 
+[Link](https://greiter18.github.io/lava-escape/)
+
 ![demo_gif](https://user-images.githubusercontent.com/66323451/108017685-884dee00-6fe3-11eb-8a21-918d646a8455.gif)
 
 
