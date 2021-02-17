@@ -4,6 +4,7 @@ export default class Player {
   constructor(game) {
     this.game = game;
     this.img = document.getElementById('imgPlayer');
+    this.sound = document.getElementById('jump')
     this.platforms = game.platforms
     this.canvas = game.canvas
     this.width = 80;
@@ -23,6 +24,7 @@ export default class Player {
         this.velocity_y -= 50
         this.onGround = false
         this.onPlatform = false
+        this.sound.play()
       }
     })
     document.addEventListener('keyup', e => {
