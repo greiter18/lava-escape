@@ -33,7 +33,7 @@ export default class Player {
      draw(ctx){
       ctx.fillStyle = 'blue'
       ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y, this.width, this.height);
-      console.log(this.position.y, this.position.y + this.height)
+      // console.log(this.position.y, this.position.y + this.height)
     };
 
     checkLandedOnPlatform(yCord){
@@ -60,8 +60,8 @@ export default class Player {
     update(dt) {
       if (!dt) return;
       //controller logic
-      if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -10}
-      if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 10}
+      if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -8}
+      if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 8}
       //level collission logic
       //height check
       if((!this.onGround && this.velocity_y >= 0) && ((this.position.y + this.height) >= this.gameHeight )){
@@ -79,10 +79,9 @@ export default class Player {
       this.game.platforms.forEach(platform => {
         if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && 
         !this.onGround && this.velocity_y >= 1) {
-          console.log('on platform')
+          
           this.onPlatform = true
           this.velocity_y = 1
-          console.log('on platform')
         } 
       });
      this.gravity();

@@ -40,7 +40,7 @@
   <div class='opening-modal' id='open_modal'>
     <p>Press Space to Begin</p>
   </div>
-  
+
   <div class='closing-modal' id='close_modal'>
     <p>Game Over! Press Space to Play Again</p>
   </div>
@@ -50,13 +50,18 @@
   <script src='./dist/main.js'></script>
   <img src="src/images/platform.png" alt="platform" id='imgPlatform'>
   <img src="src/images/char_image/Idle (1).png" alt="player" id='imgPlayer'>
-
-  <p class="score">Score</p><br> <br>
+  <div class='score'>
+    <p class="score-title">Score</p>
+    <script>
+      let score = 0;
+      setInterval (() => { return score += 10}, 500); 
+    </script>
+  </div>
   <p class="controls">
   Controls:<br> <br>
-  Left: Left <br> <br>
-  Right: Right <br> <br>
-  Jump: Space <br> <br>
+  Move Left - Left <br> <br>
+  Move Right - Right <br> <br>
+  Jump - Space <br> <br>
   </p>
 </body>
 </html>

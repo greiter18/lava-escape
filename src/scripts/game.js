@@ -1,7 +1,6 @@
 import Platform from "./platforms";
 import Player from "./player";
 
-let mix = Math.floor(Math.random() * 3) + 0
 export default class Game {
 
   constructor(gameWidth, gameHeight,canvas){
@@ -10,7 +9,6 @@ export default class Game {
     this.gameHeight = gameHeight;
     this.platforms = [new Platform(this)];
     this.player = new Player(this);
-   
   }
 
   addPlatform(){
@@ -29,6 +27,10 @@ export default class Game {
 
   draw(ctx){
     [...this.platforms,this.player].forEach(object => object.draw(ctx))
+  }
+
+  gameOver(){
+    document.getElementById('close_modal').style.display = 'block';
   }
 
 };

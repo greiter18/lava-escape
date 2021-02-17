@@ -26,8 +26,9 @@ body{
   margin-left: 200px;
   bottom: 20%;
   color: orangered;
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Hanalei Fill', cursive;
+  text-shadow: yellow 1px 1px;
 }
 .score{
   position: absolute;
@@ -37,6 +38,7 @@ body{
   color: orangered;
   font-size: 30px;
   font-family: 'Hanalei Fill', cursive;
+  text-shadow: yellow 1px 1px;
 }
 
 .links{
@@ -45,7 +47,7 @@ body{
   justify-content: space-between;
   position: absolute;
   left: 50%;
-  bottom: 20%;
+  bottom: 30%;
   flex-direction: column;
   margin-left: -300px
   
@@ -53,6 +55,7 @@ body{
 
 .links a {
   color:orangered;
-  font-size: 30px;
+  font-size: 35px;
+  text-shadow: yellow 1px 1px;
 }
 

@@ -20,6 +20,7 @@ export default class Platform {
   draw(ctx) {
       ctx.fillStyle = 'white'
       ctx.drawImage(this.img,this.position.x, this.position.y, this.width, this.height);    
+        
   };
   
   update(dt) {
