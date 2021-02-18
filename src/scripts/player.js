@@ -7,8 +7,8 @@ export default class Player {
     this.sound = document.getElementById('jump')
     this.platforms = game.platforms
     this.canvas = game.canvas
-    this.width = 80;
-    this.height = 80;
+    this.width = 50;
+    this.height = 60;
     this.gameWidth = game.gameWidth;
     this.gameHeight = game.gameHeight;
     this.onGround = false
@@ -34,26 +34,27 @@ export default class Player {
 
      draw(ctx){
       ctx.fillStyle = 'blue'
-      ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y, this.width, this.height);
+      // ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y, this.width, this.height);
+      ctx.fillRect(this.position.x, this.position.y += this.velocity_y, this.width, this.height);
       // console.log(this.position.y, this.position.y + this.height)
     };
 
-    checkLandedOnPlatform(yCord){
-        return ((this.position.y + this.height  > (yCord - 10) ) && (this.position.y + this.height <= yCord) )
-        
+    checkLandedOnPlatform(yCord){              
+        return ((this.position.y + this.height  > (yCord - 10) ) && (this.position.y + this.height <= yCord + 20) )
+                                                                                                        //platform height
       }
 
     checkWithinPlatform(platform){
-      let platWidth = platform.width
-      let platPos = platform.position.x
-      let platEndPos = platPos + platWidth
-      let playerPost = this.game.player.position.x 
+      let platWidth = platform.width //platform width
+      let platPos = platform.position.x // plaform left side position
+      let platEndPos = platPos + platWidth // plaftorm right side position
+      let playerPost = this.game.player.position.x //players x position
       return playerPost > platPos && playerPost < platEndPos;
     }
 
     gravity(){
        if (!this.onGround && !this.onPlatform) {
-        this.velocity_y += 5
+        this.velocity_y += 5.0
         // console.log(this.velocity_y)
       }
     }
@@ -77,8 +78,7 @@ export default class Player {
       }
       //checking if player is on platform 
       this.onPlatform = false
-      this.game.platforms.forEach(platform => {
-        if(this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform)) console.log('landed')
+      this.platforms.forEach(platform => {
         if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && 
         !this.onGround && this.velocity_y >= 1) {
           this.onPlatform = true
@@ -86,6 +86,5 @@ export default class Player {
         } 
       });
      this.gravity();
-       
     };
 }

@@ -20,7 +20,8 @@ export default class Platform {
 
   draw(ctx) {
       // ctx.fillStyle = 'white'
-      ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y , this.width, this.height);    
+      // ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y , this.width, this.height);    
+      ctx.fillRect(this.position.x, this.position.y += this.velocity_y , this.width, this.height);    
         
   };
   
