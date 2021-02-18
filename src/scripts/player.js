@@ -54,10 +54,9 @@ export default class Player {
     gravity(){
        if (!this.onGround && !this.onPlatform) {
         this.velocity_y += 5
-        console.log(this.velocity_y)
+        // console.log(this.velocity_y)
       }
     }
-
   
     update(dt) {
       if (!dt) return;
@@ -79,9 +78,9 @@ export default class Player {
       //checking if player is on platform 
       this.onPlatform = false
       this.game.platforms.forEach(platform => {
+        if(this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform)) console.log('landed')
         if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && 
         !this.onGround && this.velocity_y >= 1) {
-          
           this.onPlatform = true
           this.velocity_y = platform.velocity_y
         } 

@@ -1,5 +1,6 @@
 import Platform from "./platforms";
 import Player from "./player";
+import Score from "./score";
 
 export default class Game {
 
@@ -9,6 +10,7 @@ export default class Game {
     this.gameHeight = gameHeight;
     this.platforms = [new Platform(this)];
     this.player = new Player(this);
+    this.score = new Score();
   }
 
   addPlatform(){
@@ -32,5 +34,4 @@ export default class Game {
   gameOver(){
     document.getElementById('close_modal').style.display = 'block';
   }
-
 };
