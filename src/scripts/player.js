@@ -34,9 +34,7 @@ export default class Player {
 
      draw(ctx){
       ctx.fillStyle = 'blue'
-      // ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y, this.width, this.height);
-      ctx.fillRect(this.position.x, this.position.y += this.velocity_y, this.width, this.height);
-      // console.log(this.position.y, this.position.y + this.height)
+      ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y, this.width, this.height);
     };
 
     checkLandedOnPlatform(yCord){              
@@ -49,7 +47,7 @@ export default class Player {
       let platPos = platform.position.x // plaform left side position
       let platEndPos = platPos + platWidth // plaftorm right side position
       let playerPost = this.game.player.position.x //players x position
-      return playerPost > platPos && playerPost < platEndPos;
+      return playerPost > (platPos - 50) && playerPost < platEndPos ;
     }
 
     gravity(){
