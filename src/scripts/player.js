@@ -1,5 +1,4 @@
 import Game from './game';
-
 export default class Player {
   constructor(game) {
     this.game = game;
@@ -62,17 +61,23 @@ export default class Player {
       //controller logic
       if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -8}
       if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 8}
+      if (this.canvas.keys && this.canvas.keys['ArrowDown'] && this.onPlatform) {this.position.y += 20}
       //level collission logic
       //height check
       if((!this.onGround && this.velocity_y >= 0) && ((this.position.y + this.height) >= this.gameHeight )){
         this.onGround = true
         this.velocity_y = 0
         this.position.y = (this.gameHeight - this.height)
+        console.log('game over man')
       }
       //width check
-      if (this.position.x < 0) this.position.x = 0
+      // if (this.position.x < 0) this.position.x = 0
+      // if (this.position.x + this.width > this.gameWidth) {
+      //   this.position.x = this.gameWidth - this.width
+      // }
+      if (this.position.x < 0) this.position.x = this.gameWidth - this.width
       if (this.position.x + this.width > this.gameWidth) {
-        this.position.x = this.gameWidth - this.width
+        this.position.x = 0
       }
       //checking if player is on platform 
       this.onPlatform = false

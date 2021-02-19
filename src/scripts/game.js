@@ -1,6 +1,7 @@
 import Platform from "./platforms";
 import Player from "./player";
 import Score from "./score";
+import Coin from "./coins";
 
 export default class Game {
 
@@ -10,7 +11,8 @@ export default class Game {
     this.gameHeight = gameHeight;
     this.platforms = [new Platform(this)];
     this.player = new Player(this);
-    this.score = new Score();
+    this.score = new Score(this);
+    this.coins = [new Coin(this)];
   }
 
   addPlatform(){
@@ -22,9 +24,16 @@ export default class Game {
     }
 }
 
+addCoin(){
+  if(this.coins.length < 2){
+    this.coins.push(new Coin(this))
+  }
+}
+
   update(deltaTime){
     [...this.platforms,this.player].forEach(object => object.update(deltaTime));
     this.addPlatform();
+    this.addCoin();
   }
 
   draw(ctx){

@@ -5,10 +5,4 @@ export default class Score{
   this.player_score.innerHTML = this.score
   this.addScore = setInterval(() => this.score += 10, 500 )
   }
-  // addScore(){
-  //   setInterval (() => { 
-  //       this.score += 10
-  //    }, 500); 
-  // }
-
 } 
