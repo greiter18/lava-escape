@@ -1,18 +1,17 @@
 import Platform from "./platforms";
 import Player from "./player";
-import Score from "./score";
-import Coin from "./coins";
+// import Score from "./score";
+import Gem from "./gem";
 
 export default class Game {
-
-  constructor(gameWidth, gameHeight,canvas){
+  constructor(gameWidth, gameHeight,canvas,score){
     this.canvas = canvas;
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
+    this.score = score;
     this.platforms = [new Platform(this)];
     this.player = new Player(this);
-    this.score = new Score(this);
-    this.coins = [new Coin(this)];
+    this.gems = [new Gem(this)];
   }
 
   addPlatform(){
@@ -22,22 +21,21 @@ export default class Game {
     if (this.platforms.length > 50){
       this.platforms.shift();
     }
-}
-
-addCoin(){
-  if(this.coins.length < 2){
-    this.coins.push(new Coin(this))
   }
-}
+
+  addGem(){
+    if(this.gems.length <= 4)
+      this.gems.push(new Gem(this))
+  }
 
   update(deltaTime){
-    [...this.platforms,this.player].forEach(object => object.update(deltaTime));
+    [...this.gems,...this.platforms,this.player].forEach(object => object.update(deltaTime));
     this.addPlatform();
-    this.addCoin();
+    this.addGem();
   }
 
   draw(ctx){
-    [...this.platforms,this.player].forEach(object => object.draw(ctx))
+    [...this.gems,...this.platforms,this.player].forEach(object => object.draw(ctx))
   }
 
   gameOver(){

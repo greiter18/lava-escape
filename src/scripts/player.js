@@ -1,4 +1,5 @@
 import Game from './game';
+
 export default class Player {
   constructor(game) {
     this.game = game;
@@ -20,10 +21,11 @@ export default class Player {
       this.canvas.keys = (this.canvas.keys || []);
       this.canvas.keys[e.key] = true;
       if(this.canvas.keys[' '] && (this.onPlatform || this.onGround )){
-        this.velocity_y -= 50
+        this.velocity_y -= 45
         this.onGround = false
         this.onPlatform = false
         this.sound.play()
+        // this.game.score.addScore()
       }
     })
     document.addEventListener('keyup', e => {
@@ -37,7 +39,7 @@ export default class Player {
     };
 
     checkLandedOnPlatform(yCord){              
-        return ((this.position.y + this.height  > (yCord - 10) ) && (this.position.y + this.height <= yCord + 20) )
+        return ((this.position.y + this.height  > (yCord - 8) ) && (this.position.y + this.height <= yCord + 20) )
                                                                                                         //platform height
       }
 
@@ -51,7 +53,7 @@ export default class Player {
 
     gravity(){
        if (!this.onGround && !this.onPlatform) {
-        this.velocity_y += 5.0
+        this.velocity_y += 4.0
         // console.log(this.velocity_y)
       }
     }
@@ -61,7 +63,7 @@ export default class Player {
       //controller logic
       if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -8}
       if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 8}
-      if (this.canvas.keys && this.canvas.keys['ArrowDown'] && this.onPlatform) {this.position.y += 20}
+      if (this.canvas.keys && this.canvas.keys['ArrowDown'] && this.onPlatform) {this.position.y += 15}
       //level collission logic
       //height check
       if((!this.onGround && this.velocity_y >= 0) && ((this.position.y + this.height) >= this.gameHeight )){
@@ -69,6 +71,7 @@ export default class Player {
         this.velocity_y = 0
         this.position.y = (this.gameHeight - this.height)
         console.log('game over man')
+        this.game.gameOver()
       }
       //width check
       // if (this.position.x < 0) this.position.x = 0
@@ -76,7 +79,7 @@ export default class Player {
       //   this.position.x = this.gameWidth - this.width
       // }
       if (this.position.x < 0) this.position.x = this.gameWidth - this.width
-      if (this.position.x + this.width > this.gameWidth) {
+      if (this.position.x > this.gameWidth) {
         this.position.x = 0
       }
       //checking if player is on platform 

@@ -50,15 +50,16 @@
   </div>
   
   
-  <canvas id="gameScreen"></canvas>
+  <canvas id="gameScreen" style="display: none;"></canvas>
   <script src='./dist/main.js'></script>
   <audio id='jump' src="src/sounds/jump.wav"></audio>
+  <audio id='gemSound' src="src/sounds/gem.wav"></audio>
   <img src="src/images/platform.png" alt="platform" id='imgPlatform'>
   <img src="src/images/char_image/Idle (1).png" alt="player" id='imgPlayer'>
-  <img src="src/images/Coin_A.png" alt="coin" id='coin'>
-  <div class='score'>
+  <img src="src/images/gem.png" alt="gem" id='gem'>
+  <div class='player_score'>
     <p class="score-title">Score</p> 
-    <p id='player_score'></p>
+    <p id='score'></p>
   </div>
   <p class="controls">
   Controls:<br> <br>
