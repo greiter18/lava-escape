@@ -1,14 +1,9 @@
-const xCords = [400,200,20]
-const platSizes =[150, 100, 75]
-
-export default class Platform {
+export default class StartPlatform {
   constructor(game) {
-    let cord = Math.floor(Math.random() * 3) + 0;
-    let mix = Math.floor(Math.random() * 3) + 0;
     this.img = document.getElementById('imgPlatform');
     this.game = game;
-    this.position =  { x: xCords[cord] ,y:10}
-    this.width = platSizes[mix];
+    this.position =  { x: 10/ 2 ,y:200}
+    this.width = 600;
     this.height = 20;
     this.velocity_y = 0
   };

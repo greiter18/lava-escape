@@ -6,6 +6,7 @@ export default class Player {
     this.img = document.getElementById('imgPlayer');
     this.sound = document.getElementById('jump')
     this.platforms = game.platforms
+    this.startPlatform = game.startPlatform
     this.canvas = game.canvas
     this.width = 50;
     this.height = 60;
@@ -16,7 +17,8 @@ export default class Player {
     this.velocity_y = 0;
     this.position = {
       x: game.gameWidth / 2 - this.width / 2,
-      y: game.gameHeight - this.height};
+      // y: game.gameHeight - this.height};
+      y: 20};
     document.addEventListener('keydown', e => {
       this.canvas.keys = (this.canvas.keys || []);
       this.canvas.keys[e.key] = true;
@@ -39,8 +41,7 @@ export default class Player {
     };
 
     checkLandedOnPlatform(yCord){              
-        return ((this.position.y + this.height  > (yCord - 8) ) && (this.position.y + this.height <= yCord + 20) )
-                                                                                                        //platform height
+      return ((this.position.y + this.height  > (yCord - 8) ) && (this.position.y + this.height <= yCord + 20) )                                                                                                  //platform height
       }
 
     checkWithinPlatform(platform){
@@ -57,6 +58,12 @@ export default class Player {
         // console.log(this.velocity_y)
       }
     }
+
+    gameOn(){
+      if(this.onGround){
+        this.gameOver()
+      }
+    }
   
     update(dt) {
       if (!dt) return;
@@ -64,6 +71,12 @@ export default class Player {
       if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -8}
       if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 8}
       if (this.canvas.keys && this.canvas.keys['ArrowDown'] && this.onPlatform) {this.position.y += 15}
+      // if (this.canvas.keys && this.canvas.keys['ArrowUp']){
+      //   this.game.paused = !this.game.paused
+      // }
+      if (this.canvas.keys && this.canvas.keys['ArrowUp']) {
+        this.game.gameOver()
+      }
       //level collission logic
       //height check
       if((!this.onGround && this.velocity_y >= 0) && ((this.position.y + this.height) >= this.gameHeight )){
@@ -71,8 +84,10 @@ export default class Player {
         this.velocity_y = 0
         this.position.y = (this.gameHeight - this.height)
         console.log('game over man')
-        this.game.gameOver()
+        // this.game.gameOver()
       }
+      
+  
       //width check
       // if (this.position.x < 0) this.position.x = 0
       // if (this.position.x + this.width > this.gameWidth) {

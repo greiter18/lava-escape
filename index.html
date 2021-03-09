@@ -45,12 +45,17 @@
     <p>Press Space to Begin</p>
   </div>
 
-  <div class='closing-modal' id='close_modal'>
-    <p>Game Over! Press Space to Play Again</p>
+  <div class='closing-modal' id='close_modal' style="display: none;">
+    <p>Game Over!</p>
+    <p id='endScore'></p>
+    <p id='restartButton'>Press Space to Play Again</p>  
   </div>
   
-  
-  <canvas id="gameScreen" style="display: none;"></canvas>
+  <div id='startScreen'>
+    <canvas id="gameScreen" style="display: block;"></canvas>
+  </div>
+ 
+  </script>
   <script src='./dist/main.js'></script>
   <audio id='jump' src="src/sounds/jump.wav"></audio>
   <audio id='gemSound' src="src/sounds/gem.wav"></audio>
