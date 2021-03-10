@@ -22,9 +22,14 @@ let lastTime = 0;
   game.draw(ctx)
   requestAnimationFrame(gameLoop);
 }
-let start = document.getElementById('startScreen')
-start.addEventListener('click',gameLoop)
-start.addEventListener('click', () => console.log('clicked'))
+// let start = document.getElementById('startScreen')
+// start.addEventListener('click',gameLoop)
+let start = document.getElementById('open_modal')
+start.addEventListener('click',() => {
+  gameLoop()
+  document.getElementById('open_modal').style.display = 'none';
+  document.getElementById('gameScreen').style.display = 'block';
+})
 // gameLoop();
 
 })

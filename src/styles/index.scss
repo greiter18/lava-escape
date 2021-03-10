@@ -33,6 +33,12 @@ body{
   font-family: 'Hanalei Fill', cursive;
   text-shadow: yellow 1px 1px;
 }
+.gem{
+  font-size: 10px;
+  size: 10px;
+  max-width: 30px;
+  max-height: 30px;
+}
 .player_score{
   position: absolute;
   left: 55%;
@@ -68,12 +74,27 @@ body{
   font-family: 'Hanalei Fill', cursive;
   text-shadow: yellow 1px 1px;
   position: absolute;
-  left: 35%;
+  left: 40%;
   top: 20%;
   text-align: center;
+}
+.opening-modal {
+  color:orangered;
+  font-size: 25px;
+  font-family: 'Hanalei Fill', cursive;
+  text-shadow: yellow 1px 1px;
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  text-align: center;
+}
+
+.title{
+  font-size: 70px;
 }
 
 #startScreen{
   background-color:black;
 }
+
 

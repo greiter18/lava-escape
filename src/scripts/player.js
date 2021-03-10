@@ -22,7 +22,7 @@ export default class Player {
     document.addEventListener('keydown', e => {
       this.canvas.keys = (this.canvas.keys || []);
       this.canvas.keys[e.key] = true;
-      if(this.canvas.keys[' '] && (this.onPlatform || this.onGround )){
+      if(this.canvas.keys[' '] && (this.onPlatform || this.onGround)){
         this.velocity_y -= 45
         this.onGround = false
         this.onPlatform = false
@@ -74,9 +74,9 @@ export default class Player {
       // if (this.canvas.keys && this.canvas.keys['ArrowUp']){
       //   this.game.paused = !this.game.paused
       // }
-      if (this.canvas.keys && this.canvas.keys['ArrowUp']) {
-        this.game.gameOver()
-      }
+      // if (this.canvas.keys && this.canvas.keys['ArrowUp']) {
+      //   this.game.gameOver()
+      // }
       //level collission logic
       //height check
       if((!this.onGround && this.velocity_y >= 0) && ((this.position.y + this.height) >= this.gameHeight )){
@@ -84,7 +84,7 @@ export default class Player {
         this.velocity_y = 0
         this.position.y = (this.gameHeight - this.height)
         console.log('game over man')
-        // this.game.gameOver()
+        this.game.gameOver()
       }
       
   

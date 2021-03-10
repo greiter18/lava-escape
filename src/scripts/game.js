@@ -15,6 +15,7 @@ export default class Game {
     this.paused = false;
     this.gems = [new Gem(this)];
     this.restartGame = this.restartGame.bind(this);
+    this.sound = document.getElementById('scream')
   }
 
   addPlatform(){
@@ -33,25 +34,30 @@ export default class Game {
   updateScore(){
     const player_score = document.getElementById('score');
     if(!this.paused){
-      this.score += .5
+      this.score += 1
     }
     player_score.innerHTML = this.score
   }
 
   
   update(deltaTime){
-    [...this.gems,...this.platforms,this.player].forEach(object => object.update(deltaTime));
-    this.updateScore();
-    this.addPlatform();
-    this.addGem();
+    if(!this.paused){
+      [...this.gems,...this.platforms,this.player].forEach(object => object.update(deltaTime));
+      this.updateScore();
+      this.addPlatform();
+      this.addGem();
+    }
   }
 
   draw(ctx){
-    [...this.gems,...this.platforms,this.player].forEach(object => object.draw(ctx))
+    if(!this.paused){
+      [...this.gems,...this.platforms,this.player].forEach(object => object.draw(ctx))
+    }
   }
 
   gameOver(){
     this.paused = true;
+    this.sound.play()
     document.getElementById('close_modal').style.display = 'block';
     document.getElementById('gameScreen').style.display = 'none';
     console.log('clock---------------',this.clock)
@@ -61,13 +67,15 @@ export default class Game {
     finalScore.innerHTML = 'Score  : ' + this.score
     let restartButton = document.getElementById('restartButton')
     restartButton.addEventListener('click',this.restartGame)
+    
   }
 
   restartGame(){
     this.score = 0;
     this.paused = false;
-     this.platforms = [new StartPlatform(this)];
+    this.platforms = [new StartPlatform(this)];
     this.player = new Player(this);
+    this.gems = [new Gem(this)];
     document.getElementById('close_modal').style.display = 'none';
     document.getElementById('gameScreen').style.display = 'block';
   }

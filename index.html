@@ -41,24 +41,27 @@
     </a>
   </div>
 
-  <div class='opening-modal' id='open_modal'>
-    <p>Press Space to Begin</p>
+  <div class='opening-modal' id='open_modal' style="display: block;">
+    <p class='title'>Lava Escape</p>
+    <br>
+    <p>Click Here to Begin</p>
   </div>
 
   <div class='closing-modal' id='close_modal' style="display: none;">
     <p>Game Over!</p>
     <p id='endScore'></p>
-    <p id='restartButton'>Press Space to Play Again</p>  
+    <p id='restartButton'>Click Here to Play Again</p>  
   </div>
   
   <div id='startScreen'>
-    <canvas id="gameScreen" style="display: block;"></canvas>
+    <canvas id="gameScreen" style="display: none;"></canvas>
   </div>
  
   </script>
   <script src='./dist/main.js'></script>
   <audio id='jump' src="src/sounds/jump.wav"></audio>
   <audio id='gemSound' src="src/sounds/gem.wav"></audio>
+  <audio id='scream' src="src/sounds/scream.wav"></audio>
   <img src="src/images/platform.png" alt="platform" id='imgPlatform'>
   <img src="src/images/char_image/Idle (1).png" alt="player" id='imgPlayer'>
   <img src="src/images/gem.png" alt="gem" id='gem'>
@@ -71,6 +74,7 @@
   Move Left - Left <br> <br>
   Move Right - Right <br> <br>
   Jump - Space <br> <br>
+  Collect - <img class='gem' src="src/images/gem.png" alt="gem">  - for extra points<br> <br>
   </p>
 </body>
 </html>
