@@ -21,13 +21,12 @@ In addition, the project will include:
 - The screen shacking in the beginning
 
 ### MVP
-- 1)User will be greated with the home/splash page - will ask them to enter a key to begin the game.
+- 1)User will be greated with the home/splash page - will ask them  to begin the game.
   There will also be a button that explains the game.
-- 2)The main character will be displayed where they will see the screen shake to represent the volcano exploding.
-- 3)Main gameplay - user will be jumping from obstacles only ascending vertically. The floor will be rising which will appear as lava.
- As the floor rises, more of the level will appear from above showing more platforms where the player can reach.
-- 4)When the player hit the lava- the game will be over and they user will be greeted with a prompt to return to the home screen.
-- 5)If the player gets the highest score, they will be prompted to enter 3 characters.
+- 2)The main character will be displayed where they will descend on the opening platform.
+- 3)Main gameplay - user will be jumping from obstacles only ascending vertically. This will give it the appearance the player is climbing vertically.
+- 4)Scoring - Score will be detrmined by how long the player survives & by obtaining rubys which grant extra points.
+- 5)When the player hits the lava- the game will be over and they user will be greeted with a prompt to restart the game and will be shown their score
 
 
 ### WireFrame
@@ -57,5 +56,3 @@ In addition, the project will include:
 - Added sound effects and scoring - (1 Day)
   - Creating a score system based on the gameplay time
   - Add sound effect when gameover
-  - Add a shaking effect in the beginning of the game.
-
