@@ -17,6 +17,12 @@ body{
 #gem{
   display: none;
 }
+#lava{
+  display: none;
+}
+#lava2{
+  display: none;
+}
 #imgPlayer{
   display: none;
 }
@@ -77,6 +83,10 @@ body{
   left: 40%;
   top: 20%;
   text-align: center;
+}
+
+.closing-modal :first-child{
+  font-size: 50px;
 }
 .opening-modal {
   color:orangered;

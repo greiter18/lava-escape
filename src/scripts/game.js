@@ -2,6 +2,7 @@ import Platform from "./platforms";
 import Player from "./player";
 import Gem from "./gem";
 import StartPlatform from "./startPlatform"
+import Lava from "./lava"
 
 export default class Game {
   constructor(gameWidth, gameHeight,canvas,score, clock){
@@ -16,6 +17,7 @@ export default class Game {
     this.gems = [new Gem(this)];
     this.restartGame = this.restartGame.bind(this);
     this.sound = document.getElementById('scream')
+    this.lava = new Lava(this)
   }
 
   addPlatform(){
@@ -51,7 +53,7 @@ export default class Game {
 
   draw(ctx){
     if(!this.paused){
-      [...this.gems,...this.platforms,this.player].forEach(object => object.draw(ctx))
+      [...this.gems,...this.platforms,this.player,this.lava].forEach(object => object.draw(ctx))
     }
   }
 
