@@ -26,9 +26,9 @@ export default class Gem{
   debugger
   this.game.gems.splice(index,1)
   this.game.score += 200
-  if(!this.mute){
+  // if(!this.mute){
     this.sound.play()
-  }
+  // }
  } 
 
 //Player gem collission logic

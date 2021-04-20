@@ -27,9 +27,9 @@ export default class Player {
         this.velocity_y -= 45
         this.onGround = false
         this.onPlatform = false
-        if(!this.mute){
+        // if(!this.mute){
           this.sound.play()
-        }
+        // }
         // this.game.score.addScore()
       }
     })

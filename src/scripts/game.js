@@ -19,9 +19,10 @@ export default class Game {
     this.restartGame = this.restartGame.bind(this);
     this.sound = document.getElementById('scream');
     this.lava = new Lava(this);
-    this.muteGame = this.muteGame.bind(this);
-    this.muteFunction = this.muteFunction.bind(this);
+    
   }
+
+
 
   addPlatform(){
     if (this.platforms[this.platforms.length - 1].position.y >= 100){
@@ -60,23 +61,9 @@ export default class Game {
     }
   }
 
-  muteFunction(){
-    let nuMute = document.querySelector('#muteButton')
-    debugger
-    nuMute.addEventListener('click',console.log('click'))
-  }
-
-  muteGame(){
-    debugger
-    (this.mute === false) ? this.mute = true : this.mute = false;
-    console.log('----------------------',this.mute)
-  }
-
   gameOver(){
     this.paused = true;
-    if(!this.mute){
       this.sound.play()
-    }
     console.log('mute-----------',this.mute)
     document.getElementById('close_modal').style.display = 'block';
     document.getElementById('gameScreen').style.display = 'none';
@@ -84,7 +71,11 @@ export default class Game {
     clearInterval(this.clock)
     const finalScore = document.getElementById('endScore')
     // console.log('score---------------',this.score)
-    finalScore.innerHTML = 'Score  : ' + this.score
+    finalScore.innerHTML = 'Score  : ' + this.score;
+    if(this.score > localStorage.getItem('highScore')){
+      localStorage.setItem('highScore', this.score)
+      highscore.innerHTML = localStorage.getItem('highScore')
+    }
     let restartButton = document.getElementById('restartButton')
     restartButton.addEventListener('click',this.restartGame)
   }
