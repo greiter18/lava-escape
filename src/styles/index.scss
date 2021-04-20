@@ -7,7 +7,6 @@ body{
   align-items: center;
   border: 1px solid orangered;
   background-image: url("../images/background.gif");
-  
   margin: 0 auto;
 }
 
@@ -65,7 +64,6 @@ body{
   bottom: 30%;
   flex-direction: column;
   margin-left: -300px
-  
 }
 
 .links a {
@@ -105,6 +103,34 @@ body{
 
 #startScreen{
   background-color:black;
+}
+
+.muteButton{
+  color: orangered;
+  font-size: 25px;
+  font-family: 'Hanalei Fill', cursive;
+  text-shadow: yellow 1px 1px;
+  border: 2px solid orangered;
+  border-radius: 4px;
+  padding: 4px 10px;
+  position: relative;
+  bottom: 303px;
+  right: 40px;
+}
+.muteButton:hover{
+  cursor: pointer;
+  color: black;
+  background-color: orangered;
+}
+
+.leftSide{
+  display: flex;
+  flex-direction: column;
+}
+
+.clickedMute {
+  color: black;
+  background-color: orangered;
 }
 
 

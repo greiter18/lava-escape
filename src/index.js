@@ -9,9 +9,11 @@ canvas.width = 500;
 const GAME_WIDTH = 500;
 const GAME_HEIGHT = 700;
 let score = 0;
+let mute = false;
 let clock = setInterval(() => score += 10 , 750)
-let game = new Game(GAME_WIDTH, GAME_HEIGHT, canvas, score, clock)
+let game = new Game(GAME_WIDTH, GAME_HEIGHT, canvas, score, clock , mute)
 let lastTime = 0;
+
 
  function gameLoop(timestamp){
   let dt = timestamp - lastTime;
@@ -29,6 +31,21 @@ start.addEventListener('click',() => {
   gameLoop()
   document.getElementById('open_modal').style.display = 'none';
   document.getElementById('gameScreen').style.display = 'block';
+})
+
+function muteFunc(sound){
+  sound.volume = 0.0
+}
+
+let muteButton = document.querySelector('.muteButton')
+muteButton.addEventListener('click', () => {
+  muteButton.classList.toggle('clickedMute')
+  let sounds = document.querySelectorAll('.sound')
+  console.log('soundssssssss',sounds)
+  for(let i = 0; i < sounds.length; i++){
+    console.log(sounds[i])
+    sounds[i].muted === true ? sounds[i].muted = false : sounds[i].muted = true  
+  }
 })
 // gameLoop();
 

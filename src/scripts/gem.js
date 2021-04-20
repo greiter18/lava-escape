@@ -11,6 +11,7 @@ export default class Gem{
     this.player = game.player
     this.game = game
     this.score = game.score
+    this.mute = game.mute
   }
 
   draw(ctx) {
@@ -18,14 +19,16 @@ export default class Gem{
   };
 
  removeGem(){
-  console.log('gems1----------------',this)
-  console.log('gems2----------------',this.gems)
+  // console.log('gems1----------------',this)
+  // console.log('gems2----------------',this.gems)
   let index = this.game.gems.indexOf(this)
-  console.log('index----------------',index)
+  // console.log('index----------------',index)
   debugger
   this.game.gems.splice(index,1)
   this.game.score += 200
-  this.sound.play()
+  if(!this.mute){
+    this.sound.play()
+  }
  } 
 
 //Player gem collission logic

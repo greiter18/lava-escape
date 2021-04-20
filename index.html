@@ -16,55 +16,53 @@
   <title>Lava Escape</title>
 </head>
 <body>
+    <div class="links">
+      <p class='muteButton'>Mute</p>
+      <a href="https://www.linkedin.com/in/gabriel-reiter-7352b2b7/"
+        class='linkedin'
+        target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/greiter18"
+        class='github'
+        target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://github.com/greiter18/lava-escape"
+        class='github'
+        target="_blank">
+        <i class="fab fa-git"></i>
+      </a>
+      <a href="https://angel.co/u/gabriel-reiter"
+        class = 'angellist'
+        target="_blank"
+      >
+      <i class="fab fa-angellist"></i>
+      </a>
 
-  <div class="links">
-    <a href="https://www.linkedin.com/in/gabriel-reiter-7352b2b7/"
-       class='linkedin'
-       target="_blank">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://github.com/greiter18"
-       class='github'
-       target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://github.com/greiter18/lava-escape"
-       class='github'
-       target="_blank">
-      <i class="fab fa-git"></i>
-    </a>
-    <a href="https://angel.co/u/gabriel-reiter"
-      class = 'angellist'
-      target="_blank"
-     >
-    <i class="fab fa-angellist"></i>
-    </a>
-  </div>
-
+      
+    </div>
+     
   <div class='opening-modal' id='open_modal' style="display: block;">
     <p class='title'>Lava Escape</p>
     Click Here to Begin <br><br>
     Rules <br>
     Collect - <img class='gem' src="src/images/gem.png" alt="gem"> - for extra points<br> 
     Don't touch the lava on the floor<br> <br>
-    
   </div>
-
   <div class='closing-modal' id='close_modal' style="display: none;">
     <p>Game Over!</p>
     <p id='endScore'></p>
     <p id='restartButton'>Click Here to Play Again</p>  
   </div>
-  
   <div id='startScreen'>
     <canvas id="gameScreen" style="display: none;"></canvas>
   </div>
- 
   </script>
   <script src='./dist/main.js'></script>
-  <audio id='jump' src="src/sounds/jump.wav"></audio>
-  <audio id='gemSound' src="src/sounds/gem.wav"></audio>
-  <audio id='scream' src="src/sounds/scream.wav"></audio>
+  <audio id='jump' class='sound' src="src/sounds/jump.wav"></audio>
+  <audio id='gemSound' class='sound' src="src/sounds/gem.wav"></audio>
+  <audio id='scream' class='sound'src="src/sounds/scream.wav"></audio>
   <img src="src/images/platform.png" alt="platform" id='imgPlatform'>
   <img src="src/images/char_image/Idle (1).png" alt="player" id='imgPlayer'>
   <img src="src/images/gem.png" alt="gem" id='gem'>

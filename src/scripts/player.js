@@ -8,6 +8,7 @@ export default class Player {
     this.platforms = game.platforms
     this.startPlatform = game.startPlatform
     this.canvas = game.canvas
+    this.mute = game.mute
     this.width = 50;
     this.height = 60;
     this.gameWidth = game.gameWidth;
@@ -26,7 +27,9 @@ export default class Player {
         this.velocity_y -= 45
         this.onGround = false
         this.onPlatform = false
-        this.sound.play()
+        if(!this.mute){
+          this.sound.play()
+        }
         // this.game.score.addScore()
       }
     })
@@ -83,7 +86,7 @@ export default class Player {
         this.onGround = true
         this.velocity_y = 0
         this.position.y = (this.gameHeight - this.height)
-        console.log('game over man')
+        // console.log('game over man')
         this.game.gameOver()
       }
       

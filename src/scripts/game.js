@@ -5,7 +5,7 @@ import StartPlatform from "./startPlatform"
 import Lava from "./lava"
 
 export default class Game {
-  constructor(gameWidth, gameHeight,canvas,score, clock){
+  constructor(gameWidth, gameHeight,canvas,score, clock, mute){
     this.canvas = canvas;
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
@@ -15,9 +15,12 @@ export default class Game {
     this.player = new Player(this);
     this.paused = false;
     this.gems = [new Gem(this)];
+    this.mute = mute;
     this.restartGame = this.restartGame.bind(this);
-    this.sound = document.getElementById('scream')
-    this.lava = new Lava(this)
+    this.sound = document.getElementById('scream');
+    this.lava = new Lava(this);
+    this.muteGame = this.muteGame.bind(this);
+    this.muteFunction = this.muteFunction.bind(this);
   }
 
   addPlatform(){
@@ -33,6 +36,7 @@ export default class Game {
     if(this.gems.length < 1)
       this.gems.push(new Gem(this))
   }
+
   updateScore(){
     const player_score = document.getElementById('score');
     if(!this.paused){
@@ -41,7 +45,6 @@ export default class Game {
     player_score.innerHTML = this.score
   }
 
-  
   update(deltaTime){
     if(!this.paused){
       [...this.gems,...this.platforms,this.player].forEach(object => object.update(deltaTime));
@@ -57,19 +60,33 @@ export default class Game {
     }
   }
 
+  muteFunction(){
+    let nuMute = document.querySelector('#muteButton')
+    debugger
+    nuMute.addEventListener('click',console.log('click'))
+  }
+
+  muteGame(){
+    debugger
+    (this.mute === false) ? this.mute = true : this.mute = false;
+    console.log('----------------------',this.mute)
+  }
+
   gameOver(){
     this.paused = true;
-    this.sound.play()
+    if(!this.mute){
+      this.sound.play()
+    }
+    console.log('mute-----------',this.mute)
     document.getElementById('close_modal').style.display = 'block';
     document.getElementById('gameScreen').style.display = 'none';
-    console.log('clock---------------',this.clock)
+    // console.log('clock---------------',this.clock)
     clearInterval(this.clock)
     const finalScore = document.getElementById('endScore')
-    console.log('score---------------',this.score)
+    // console.log('score---------------',this.score)
     finalScore.innerHTML = 'Score  : ' + this.score
     let restartButton = document.getElementById('restartButton')
     restartButton.addEventListener('click',this.restartGame)
-    
   }
 
   restartGame(){
