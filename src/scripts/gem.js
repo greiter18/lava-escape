@@ -19,23 +19,22 @@ export default class Gem{
   };
 
  removeGem(){
-  // console.log('gems1----------------',this)
-  // console.log('gems2----------------',this.gems)
   let index = this.game.gems.indexOf(this)
-  // console.log('index----------------',index)
-  debugger
   this.game.gems.splice(index,1)
   this.game.score += 200
-  // if(!this.mute){
-    this.sound.play()
-  // }
+  this.sound.play()
  } 
 
 //Player gem collission logic
-  playerGemHeight(yCord){
-    return (this.position.y + this.height >(yCord - 8) && this.position.y + this.height)
+  playerGemHeight(playerY){
+    console.log('height--------------',this.position.y + this.height)
+    // return ((yCord - 8) > this.position.y + this.height  && this.position.y + this.height)
+    // return (this.position.y + this.height > (player + 60) && this.position.y + this.height)
+    return (((this.position.y + this.height ) <= (playerY)) && ( (playerY + 50) >= this.position.y))
+    // return (this.position.y)
   }
   playerGemwidth(player){
+    debugger
     let playWidth = player.width // player width
     let playPos = player.position.x // player left side
     let playEndPos = playWidth + playPos // player right side
@@ -44,6 +43,13 @@ export default class Gem{
   }
 
   update(ctx) { 
-    if(this.playerGemHeight(this.player.position.y) && this.playerGemwidth(this.player)) this.removeGem() 
+    // if(this.playerGemHeight(this.player.position.y) && this.playerGemwidth(this.player)) {
+      if((this.player.position.y + this.player.height >= this.position.y + this.height) && // bottom of player is greater than the bottom of gem
+        (this.player.position.y <= this.position.y + this.height) && 
+        (this.player.position.x + this.player.width >= this.position.x) &&
+        (this.player.position.x  <= this.position.x + this.width)
+      ){
+      debugger
+      this.removeGem()}
   }
 }

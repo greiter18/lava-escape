@@ -27,10 +27,7 @@ export default class Player {
         this.velocity_y -= 45
         this.onGround = false
         this.onPlatform = false
-        // if(!this.mute){
-          this.sound.play()
-        // }
-        // this.game.score.addScore()
+        this.sound.play()
       }
     })
     document.addEventListener('keyup', e => {
@@ -44,7 +41,7 @@ export default class Player {
     };
 
     checkLandedOnPlatform(yCord){              
-      return ((this.position.y + this.height  > (yCord - 8) ) && (this.position.y + this.height <= yCord + 20) )                                                                                                  //platform height
+      return ((this.position.y + this.height  > (yCord - 8) ) && (this.position.y + this.height <= yCord + 50) )                                                                                                  //platform height
       }
 
     checkWithinPlatform(platform){
