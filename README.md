@@ -7,9 +7,7 @@
 
   
 ### Background and overview
-Erruption is an interactive platform game where the player puts their skills to the test. It's a fight against the rising lava as the player
-will try to jump their way out of the volcano and not fall into the rising lava. The level will be shifting up and if the player touches the lava, the game is over. The player will try to navigate their way up and gain ground on the moving obstacles. After a certain point the speed at which the level rises will speed up. Score will be based on the players survivial time and will be granted extra points for optional items 
-that can be picked up during play.
+Lava Escape is an interactive platform game where the player puts their platform skills to the test. Try to survive for as long as you can while jumping from platform to platform as they are falling to lava at the bottom of the level. Score is based on your survival time. Gems appear randomly throughout the level and will grant you bonus points when captured. Current highscore is 1500. Can you beat it??
 
 ### MVP
 In Lava Escape, users will be able to:
@@ -17,16 +15,18 @@ In Lava Escape, users will be able to:
 - Use left key to move to the LEFT
 - Use right key to move to the RIGHT 
 
-In addition, the project will include:
-- The screen shacking in the beginning
 
 ### MVP
-- 1)User will be greated with the home/splash page - will ask them  to begin the game.
-  There will also be a button that explains the game.
-- 2)The main character will be displayed where they will descend on the opening platform.
-- 3)Main gameplay - user will be jumping from obstacles only ascending vertically. This will give it the appearance the player is climbing vertically.
-- 4)Scoring - Score will be detrmined by how long the player survives & by obtaining rubys which grant extra points.
-- 5)When the player hits the lava- the game will be over and they user will be greeted with a prompt to restart the game and will be shown their score
+HomeScreen
+* User is greated with the home/splash page - you are asked to begin the game. There will also be an area that explains the game.
+Opening
+* The main character is displayed, where they are descended on the opening platform.
+Main gameplay 
+* user will be jumping from obstacles only ascending vertically. This will give it the appearance the player is climbing up.
+Scoring  
+* Score is detrmined by how long the player survives & by obtaining rubys which grant extra points.
+GameOver
+* When the player hits the lava the game will be over and they user will be greeted with a prompt to restart the game and will be shown their score.
 
 
 ### WireFrame
@@ -41,18 +41,3 @@ In addition, the project will include:
 ### Architecture and Technology
 - HTML5 CANVAS
 - Vanilla JavaScript
-
-### Implementation & Timeline
-- Level Design - User Instructions (1 Day)
-  - Creating the platforms that the player can jump on.
-- GamePlay build - (2 Days)
-   - Main Player
-     - Building out the main player
-     - Building out Player moving Logic(jumping, moving)
-   - Main Gameplay
-     - Building out the vertical scroll logic
-     - Incorporating player movement with the scrolling platfoms (Collision logic)
-     - Building out the game over logic
-- Added sound effects and scoring - (1 Day)
-  - Creating a score system based on the gameplay time
-  - Add sound effect when gameover
