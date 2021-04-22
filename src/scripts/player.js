@@ -107,14 +107,16 @@ export default class Player {
         // } 
         if(
           (this.position.y + this.height >= platform.position.y - 8) && // bottom of player is greater than the bottom of gem
-          (this.position.y + this.height <= platform.position.y + 25) && 
+          (this.position.y + this.height <= platform.position.y + 30) && 
           (this.position.x + this.width >= platform.position.x) &&
           (this.position.x  <= platform.position.x + platform.width) && 
           !this.onGround && 
-          this.velocity_y >= 1){
-          this.onPlatform = true
-          this.velocity_y = platform.velocity_y
-        } 
+          this.velocity_y >= 1
+          ){
+            this.onPlatform = true
+            this.velocity_y = platform.velocity_y
+          debugger
+            } 
       });
      this.gravity();
     };
