@@ -24,7 +24,7 @@ export default class Player {
       this.canvas.keys = (this.canvas.keys || []);
       this.canvas.keys[e.key] = true;
       if(this.canvas.keys[' '] && (this.onPlatform || this.onGround)){
-        this.velocity_y -= 45
+        this.velocity_y -= 40
         this.onGround = false
         this.onPlatform = false
         this.sound.play()
@@ -54,7 +54,7 @@ export default class Player {
 
     gravity(){
        if (!this.onGround && !this.onPlatform) {
-        this.velocity_y += 4.0
+        this.velocity_y += 3.5
         // console.log(this.velocity_y)
       }
     }
@@ -106,7 +106,7 @@ export default class Player {
         //   this.velocity_y = platform.velocity_y
         // } 
         if(
-          (this.position.y + this.height >= platform.position.y - 8) && // bottom of player is greater than the bottom of gem
+          (this.position.y + this.height >= platform.position .y - 10) && // -20 bottom of player is greater than the bottom of gem
           (this.position.y + this.height <= platform.position.y + 30) && 
           (this.position.x + this.width >= platform.position.x) &&
           (this.position.x  <= platform.position.x + platform.width) && 
