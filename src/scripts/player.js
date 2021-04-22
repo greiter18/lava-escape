@@ -37,7 +37,7 @@ export default class Player {
 
      draw(ctx){
       ctx.fillStyle = 'blue'
-      ctx.drawImage(this.img,this.position.x, this.position.y += this.velocity_y, this.width, this.height);
+      ctx.drawImage(this.img, this.position.x, this.position.y += this.velocity_y, this.width, this.height);
     };
 
     checkLandedOnPlatform(yCord){              
@@ -100,8 +100,18 @@ export default class Player {
       //checking if player is on platform 
       this.onPlatform = false
       this.platforms.forEach(platform => {
-        if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && 
-        !this.onGround && this.velocity_y >= 1) {
+        // if (this.checkLandedOnPlatform(platform.position.y) && this.checkWithinPlatform(platform) && 
+        // !this.onGround && this.velocity_y >= 1) {
+        //   this.onPlatform = true
+        //   this.velocity_y = platform.velocity_y
+        // } 
+        if(
+          (this.position.y + this.height >= platform.position.y - 8) && // bottom of player is greater than the bottom of gem
+          (this.position.y + this.height <= platform.position.y + 25) && 
+          (this.position.x + this.width >= platform.position.x) &&
+          (this.position.x  <= platform.position.x + platform.width) && 
+          !this.onGround && 
+          this.velocity_y >= 1){
           this.onPlatform = true
           this.velocity_y = platform.velocity_y
         } 

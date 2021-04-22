@@ -27,7 +27,7 @@ export default class Gem{
 
 //Player gem collission logic
   playerGemHeight(playerY){
-    console.log('height--------------',this.position.y + this.height)
+    // console.log('height--------------',this.position.y + this.height)
     // return ((yCord - 8) > this.position.y + this.height  && this.position.y + this.height)
     // return (this.position.y + this.height > (player + 60) && this.position.y + this.height)
     return (((this.position.y + this.height ) <= (playerY)) && ( (playerY + 50) >= this.position.y))

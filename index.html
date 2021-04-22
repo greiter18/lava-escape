@@ -16,70 +16,77 @@
   <title>Lava Escape</title>
 </head>
 <body>
-    <div class="links">
-      <p class='muteButton'>Mute</p>
-      <a href="https://www.linkedin.com/in/gabriel-reiter-7352b2b7/"
-        class='linkedin'
-        target="_blank">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/greiter18"
-        class='github'
-        target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://github.com/greiter18/lava-escape"
-        class='github'
-        target="_blank">
-        <i class="fab fa-git"></i>
-      </a>
-      <a href="https://angel.co/u/gabriel-reiter"
-        class = 'angellist'
-        target="_blank"
-      >
-      <i class="fab fa-angellist"></i>
-      </a>
-
-      
+  <div class='main'>
+    <div class="left-side">
+      <div>
+        <p class='muteButton'>Mute</p>
+      </div>
+      <div class='links' >
+        <a href="https://www.linkedin.com/in/gabriel-reiter-7352b2b7/"
+          class='linkedin'
+          target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/greiter18"
+          class='github'
+          target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://github.com/greiter18/lava-escape"
+          class='github'
+          target="_blank">
+          <i class="fab fa-git"></i>
+        </a>
+        <a href="https://angel.co/u/gabriel-reiter"
+          class = 'angellist'
+          target="_blank"
+        >
+        <i class="fab fa-angellist"></i>
+        </a>
+      </div>
     </div>
-     
-  <div class='opening-modal' id='open_modal' style="display: block;">
-    <p class='title'>Lava Escape</p>
-    Click Here to Begin <br><br>
-    Rules <br>
-    Collect - <img class='gem' src="src/images/gem.png" alt="gem"> - for extra points<br> 
-    Don't touch the lava on the floor<br> <br>
+    <div class="center">
+      <div class='opening-modal' id='open_modal' style="display: block;">
+        <p class='title'>Lava Escape</p>
+        <section id='clickHere'>Click Here to Begin</section>  <br><br>
+        <section id='rules'>Rules</section>  <br>
+        Collect - <img class='gem' src="src/images/gem.png" alt="gem"> - for extra points<br>
+        Don't touch the lava on the floor<br> <br>
+      </div>
+      <div class='closing-modal' id='close_modal' style="display: none;">
+        <p>Game Over!</p>
+        <p id='endScore'></p>
+        <p id='restartButton'>Click Here to Play Again</p>
+      </div>
+      <div id='startScreen'>
+        <canvas id="gameScreen" style="display: none;"></canvas>
+      </div>
+      <script src='./dist/main.js'></script>
+      <audio id='jump' class='sound' src="src/sounds/jump.wav"></audio>
+      <audio id='gemSound' class='sound' src="src/sounds/gem.wav"></audio>
+      <audio id='scream' class='sound' src="src/sounds/scream.wav"></audio>
+      <img src="src/images/platform.png" alt="platform" id='imgPlatform'>
+      <img src="src/images/char_image/Idle (1).png" alt="player" id='imgPlayer'>
+      <img src="src/images/gem.png" alt="gem" id='gem'>
+      <img src="src/images/lava.png" alt="lava" id='lava'>
+      <img src="src/images/lava2.gif" alt="lava2" id='lava2'>
+    </div>
+    <div class=right-side>
+      <div class='player_score'>
+        <p class="score-title">Score</p>
+        <p id='score'></p>
+        <p class="highScore-title">High-Score</p>
+        <p id='highscore'></p>
+      </div>
+      <div class="controls">
+          <p>Controls:</p>
+          Move Left - Left <br>
+          Move Right - Right <br>
+          Drop Down - Down<br>
+          Jump - Space <br> 
+      </div>
+    </div>
   </div>
-  <div class='closing-modal' id='close_modal' style="display: none;">
-    <p>Game Over!</p>
-    <p id='endScore'></p>
-    <p id='restartButton'>Click Here to Play Again</p>  
-  </div>
-  <div id='startScreen'>
-    <canvas id="gameScreen" style="display: none;"></canvas>
-  </div>
-  </script>
-  <script src='./dist/main.js'></script>
-  <audio id='jump' class='sound' src="src/sounds/jump.wav"></audio>
-  <audio id='gemSound' class='sound' src="src/sounds/gem.wav"></audio>
-  <audio id='scream' class='sound'src="src/sounds/scream.wav"></audio>
-  <img src="src/images/platform.png" alt="platform" id='imgPlatform'>
-  <img src="src/images/char_image/Idle (1).png" alt="player" id='imgPlayer'>
-  <img src="src/images/gem.png" alt="gem" id='gem'>
-  <img src="src/images/lava.png" alt="lava" id='lava'>
-  <img src="src/images/lava2.gif" alt="lava2" id='lava2'>
-  <div class='player_score'>
-    <p class="score-title">Score</p> 
-    <p id='score'></p>
-    <p class="highScore-title">High-Score</p>
-    <p id='highscore'></p>
-  </div>
-  <p class="controls">
-  Controls:<br> <br>
-  Move Left - Left <br> 
-  Move Right - Right <br> 
-  Jump - Space <br> <br>
-  </p>
 </body>
 </html>
 
