@@ -34,7 +34,7 @@ export default class Gem{
     // return (this.position.y)
   }
   playerGemwidth(player){
-    debugger
+    // debugger
     let playWidth = player.width // player width
     let playPos = player.position.x // player left side
     let playEndPos = playWidth + playPos // player right side
@@ -49,7 +49,7 @@ export default class Gem{
         (this.player.position.x + this.player.width >= this.position.x) &&
         (this.player.position.x  <= this.position.x + this.width)
       ){
-      debugger
+      // debugger
       this.removeGem()}
   }
 }

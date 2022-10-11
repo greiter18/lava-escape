@@ -24,10 +24,10 @@ body{
 }
 
 .links a{
-  color: orangered;
+  color: white;
   font-size: 40px;
-  font-family: 'Hanalei Fill', cursive;
-  text-shadow: yellow 1px 1px;
+  //font-family: 'Hanalei Fill', cursive;
+  //text-shadow: yellow 1px 1px;
 }
 
 .right-side{
@@ -51,10 +51,10 @@ body{
 }
 
 .controls{
-  color: orangered;
+  color: white;
   font-size: 25px;
-  font-family: 'Hanalei Fill', cursive;
-  text-shadow: yellow 1px 1px;
+  //font-family: 'Hanalei Fill', cursive;
+  //text-shadow: yellow 1px 1px;
   top: 65%;
   position: absolute;
 }
@@ -72,42 +72,63 @@ body{
 
 .player_score{
   top: 10%;
-  color: orangered;
+  color: white;
   font-size: 30px;
-  font-family: 'Hanalei Fill', cursive;
+  //font-family: 'Hanalei Fill', cursive;
+  //text-shadow: yellow 1px 1px;
+}
+
+#game-over{
   text-shadow: yellow 1px 1px;
+  color: orangered;
+  font-size: 150px;
+  font-family: 'Hanalei Fill', cursive;
 }
 
 .closing-modal {
-  color:orangered;
+  color:white;
   font-size: 40px;
-  font-family: 'Hanalei Fill', cursive;
-  text-shadow: yellow 1px 1px;
+  //font-family: 'Hanalei Fill', cursive;
+  //text-shadow: yellow 1px 1px;
   text-align: center;
+}
+
+.closing-modal span{
+  color: orangered;
+  cursor: pointer;
 }
 
 .closing-modal :first-child{
   font-size: 50px;
 }
 .opening-modal {
-  color:orangered;
+
+  color: white;
   font-size: 25px;
-  font-family: 'Hanalei Fill', cursive;
-  text-shadow: yellow 1px 1px;
+  //font-family: 'Hanalei Fill', cursive;
   text-align: center;
+  width: 37em;
+  margin: auto;
 }
 
 #clickHere{
   font-size: 40px;
+ 
 }
-
+#clickHere span{
+  color: orangered;
+  cursor: pointer;
+}
 #rules{
   text-decoration: underline;
   font-size: 30px;
 }
 
 .title{
-  font-size: 70px;
+  font-size: 150px;
+  font-family: 'Hanalei Fill', cursive;
+  text-shadow: yellow 1px 1px;
+  color: orangered;
 }
 
 #startScreen{
@@ -115,11 +136,11 @@ body{
 }
 
 .muteButton{
-  color: orangered;
+  color: white;
   font-size: 25px;
-  font-family: 'Hanalei Fill', cursive;
-  text-shadow: yellow 1px 1px;
-  border: 2px solid orangered;
+  //font-family: 'Hanalei Fill', cursive;
+  //text-shadow: yellow 1px 1px;
+  border: 2px solid white;
   border-radius: 4px;
   padding: 4px 10px;
 }
@@ -127,6 +148,7 @@ body{
   cursor: pointer;
   color: black;
   background-color: orangered;
+
 }
 
 .clickedMute {

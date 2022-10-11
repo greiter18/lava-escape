@@ -63,7 +63,7 @@ export default class Game {
 
   gameOver(){
     this.paused = true;
-      this.sound.play()
+      //this.sound.play()
     // console.log('mute-----------',this.mute)
     document.getElementById('close_modal').style.display = 'block';
     document.getElementById('gameScreen').style.display = 'none';
