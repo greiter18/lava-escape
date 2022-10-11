@@ -70,7 +70,7 @@ export default class Player {
       //controller logic
       if (this.canvas.keys && this.canvas.keys['ArrowLeft']) {this.position.x += -8}
       if (this.canvas.keys && this.canvas.keys['ArrowRight']) {this.position.x += 8}
-      if (this.canvas.keys && this.canvas.keys['ArrowDown'] && this.onPlatform) {this.position.y += 15}
+      if (this.canvas.keys && this.canvas.keys['ArrowDown'] && this.onPlatform) {this.position.y += 50}
       // if (this.canvas.keys && this.canvas.keys['ArrowUp']){
       //   this.game.paused = !this.game.paused
       // }
@@ -106,14 +106,18 @@ export default class Player {
         //   this.velocity_y = platform.velocity_y
         // } 
         // -20 bottom of player is greater than the bottom of gem
-        if((this.position.y + this.height >= platform.position .y - 10) && 
+        if((this.position.y + this.height >= platform.position.y - 10) && 
           (this.position.y + this.height <= platform.position.y + 30) && 
           (this.position.x + this.width >= platform.position.x) &&
           (this.position.x  <= platform.position.x + platform.width) && 
           !this.onGround && this.velocity_y >= 1){
-            this.position.y = platform.position.y - 5;
+            this.position.y = Math.abs(this.height - platform.position.y);
             this.onPlatform = true;
             this.velocity_y = platform.velocity_y;
+            
+            console.log(`Player; ${this.position.y}`);
+            console.log(`Height; ${this.height}`);
+            console.log(`Platform: ${platform.position.y}`);
           debugger
             } 
       });
